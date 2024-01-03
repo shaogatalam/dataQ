@@ -40,11 +40,6 @@ def home():
 
 
 
-
-
-
-
-
 def create_context(chat_id, question, pre_conversation,  max_len=1800, size="ada"):
     # return  "context"
     main_df = pd.read_csv('processed/' + chat_id + '/embeddings.csv', index_col=0)
@@ -427,7 +422,7 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Check if the user exists and the password is correct (this is a basic example)
+        # Check if the user exists and the password is correct
         for user in users:
             if user["username"] == username and user["password"] == password:
                 return f"Welcome, {username}!"
@@ -443,7 +438,7 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Add the new user to the list (this is a basic example)
+        # Add the new user to the list
         users.append({"username": username, "password": password})
         return f"Registered successfully! You can now <a href='/login'>login</a>."
 
